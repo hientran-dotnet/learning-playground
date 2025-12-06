@@ -1,0 +1,13 @@
+﻿Bài tập thực hành:
+
+Bài tập 1: Sử dụng List<T> để quản lý danh sách sinh viên.
+- Tạo một danh sách lưu trữ tên các sinh viên.
+- Thêm, xóa và tìm kiếm tên trong danh sách.
+
+Bài tập 2: Sử dụng Dictionary<TKey, TValue> để quản lý điểm thi.
+- Lưu trữ điểm thi của sinh viên với khóa là tên và giá trị là điểm.
+- In danh sách sinh viên có điểm > 8.
+
+Bài tập 3: So sánh hiệu năng giữa ArrayList và List<T>.
+- Tạo 1000 phần tử số nguyên trong ArrayList và List<int>.
+- Đo thời gian truy xuất từng phần tử.
