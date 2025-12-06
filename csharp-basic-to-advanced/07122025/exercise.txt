@@ -1,0 +1,12 @@
+﻿1. Tạo lớp cha Vehicle với phương thức Move().
+Tạo các lớp con như Car, Bike kế thừa từ Vehicle và ghi đè phương thức Move()
+
+2. Bài tập quản lý sinh viên:
+- Tạo một hệ thống quản lý nhân viên với các loại nhân viên khác nhau: 
+FulltimeEmployee, PartTimeEmployee và Intern
+- Lớp cha Employee chứa thông tin chung như Name và CalculateSalary()
+- Các lớp con sẽ ghi đè phương thức CalculateSalary() để tính lương theo quy tắc riêng:
+	+ Nhân viên toàn thời gian (FullTimeEmployee): Lương cố định
+	+ Nhân viên bán thời gian (PartTimeEmployee): Tính lương theo giờ làm việc.
+	+ Thực tập sinh (Intern): Không nhận lương, nhưng in thông báo
+- Sử dụng đa hình để gọi phương thức CalculateSalary() cho các loại nhân viên khác nhau
