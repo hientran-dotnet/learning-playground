@@ -1,0 +1,171 @@
+BÀI TẬP LUYỆN TẬP (Cơ bản → Nâng cao)
+
+Mình chia theo cấp độ. Bạn có thể làm trong Console App, mỗi bài 1 file.
+
+Level 1 — Làm quen async/await
+
+Bài 1: Delay + đo thời gian
+
+Viết Task WaitAndPrintAsync(int ms)
+
+In “Start”, await delay, in “Done”
+
+Gọi 3 lần:
+
+tuần tự
+
+concurrent bằng Task.WhenAll
+
+So sánh tổng thời gian chạy.
+
+Bài 2: Async Main + exception
+
+Tạo Task<int> DivideAsync(int a, int b)
+
+Nếu b==0 throw
+
+Bắt exception ở Main bằng try/catch.
+
+Bài 3: Không dùng .Result
+
+Viết 1 phiên bản sai dùng .Result và phiên bản đúng dùng await.
+
+Ghi nhận khác biệt (đặc biệt nếu bạn thử trong app UI sau này).
+
+Level 2 — WhenAll/WhenAny + xử lý kết quả
+
+Bài 4: Download nhiều URL
+
+Input: danh sách 10 URL
+
+Output: độ dài HTML mỗi trang
+
+Yêu cầu:
+
+bản 1: tuần tự
+
+bản 2: song song WhenAll
+
+in thời gian chạy
+
+Bài 5: WhenAny — “ai xong trước dùng trước”
+
+Tạo 3 task giả lập bằng Task.Delay (500ms, 1200ms, 800ms)
+
+Dùng Task.WhenAny để in task hoàn thành đầu tiên
+
+Sau đó await các task còn lại.
+
+Bài 6: Khi có lỗi
+
+Cho 1 URL “hỏng” hoặc method ném lỗi ngẫu nhiên
+
+Khi chạy WhenAll:
+
+yêu cầu thu thập được:
+
+cái nào thành công
+
+cái nào thất bại + message
+
+Gợi ý: tạo model:
+
+record Result<T>(bool Ok, T? Value, Exception? Error);
+
+Level 3 — Cancellation + Timeout + Progress
+
+Bài 7: Huỷ bằng phím bấm
+
+Chạy loop 100 lần, mỗi lần await Task.Delay(200)
+
+Nếu người dùng nhấn q thì huỷ
+
+Dùng CancellationTokenSource + Console.ReadKey (có thể chạy read key trên task riêng).
+
+Bài 8: Timeout
+
+Viết Task<string> GetWithTimeoutAsync(string url, TimeSpan timeout)
+
+Dùng CancellationTokenSource(timeout) hoặc WaitAsync(timeout)
+
+Test với URL chậm (hoặc mô phỏng bằng Delay).
+
+Bài 9: Progress
+
+Download 20 “work items”
+
+Báo tiến độ kiểu done/total
+
+Dùng IProgress<(int,int)>.
+
+Level 4 — Giới hạn concurrency + đồng bộ hoá async
+
+Bài 10: Giới hạn đồng thời
+
+Download 50 URL nhưng giới hạn tối đa 5 request cùng lúc
+
+Dùng SemaphoreSlim
+
+In log: “start url”, “done url” để thấy concurrency hoạt động.
+
+Bài 11: Cache async (tránh gọi trùng)
+
+Viết GetOrAddAsync(key, factoryAsync)
+
+Nếu 10 request cùng hỏi 1 key:
+
+chỉ được gọi factoryAsync đúng 1 lần
+
+các request khác await kết quả
+
+Gợi ý:
+
+ConcurrentDictionary<TKey, Lazy<Task<T>>>
+
+hoặc lock + dictionary + store Task
+
+Bài 12: Async lock
+
+Tạo biến số balance
+
+Tạo 100 task cùng “deposit” 1
+
+Nếu không sync sẽ sai
+
+Dùng SemaphoreSlim để bảo vệ.
+
+Level 5 — Async Streams + Producer/Consumer (rất thực tế)
+
+Bài 13: IAsyncEnumerable dữ liệu chảy
+
+Viết IAsyncEnumerable<int> GenerateAsync(int n) mỗi 200ms yield 1 số
+
+Consumer dùng await foreach để:
+
+in ra
+
+stop sớm khi gặp số chia hết cho 7 (dùng cancellation hoặc break)
+
+Bài 14: Producer-Consumer bằng Channel
+
+Producer tạo jobs (int hoặc record)
+
+Consumer xử lý jobs bằng async
+
+Yêu cầu:
+
+1 producer
+
+3 consumers chạy song song
+
+khi producer xong thì đóng channel để consumers dừng.
+
+Bài 15: Pipeline 3 bước
+
+Step 1: đọc input (async stream)
+
+Step 2: transform (async)
+
+Step 3: output (async)
+
+Có cancellation và progress.
