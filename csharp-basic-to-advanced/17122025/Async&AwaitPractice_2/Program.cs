@@ -13,11 +13,21 @@ namespace Async_AwaitPractice_2
     {
         static async Task<int> DivideAsync(int a, int b)
         {
-
+            await Task.Delay(500);
+            return a / b;
         }
+
         static async Task Main(string[] args)
         {
-            
+            try
+            {
+                int result = await DivideAsync(10, 2);
+                Console.WriteLine($"Result: {result}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
     }
 }
