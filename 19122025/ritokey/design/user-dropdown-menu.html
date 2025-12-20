@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dashboard - Profile Dropdown Open</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#0ea5e9", // Sky blue/Primary blue from screenshot
+                        secondary: "#64748b",
+                        "background-light": "#f3f4f6", // Light gray background
+                        "background-dark": "#0f172a", // Dark slate background
+                        success: "#10b981",
+                        warning: "#f59e0b",
+                        danger: "#ef4444",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'dropdown': '0 10px 40px -5px rgba(0, 0, 0, 0.1)',
+                    }
+                },
+            },
+        };
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }.no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-100 overflow-hidden">
+<div class="flex h-screen w-full">
+<aside class="w-[260px] flex-shrink-0 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col justify-between transition-colors duration-300">
+<div>
+<div class="h-16 flex items-center px-6 border-b border-gray-100 dark:border-gray-700">
+<span class="text-2xl font-bold text-gray-900 dark:text-white">Rito<span class="text-primary">Key</span></span>
+<span class="ml-2 text-xs font-medium text-gray-400 mt-1">Admin</span>
+</div>
+<nav class="p-4 space-y-1 overflow-y-auto max-h-[calc(100vh-120px)] no-scrollbar">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-blue-50 dark:bg-primary/10 text-primary font-medium" href="#">
+<span class="material-icons-round text-xl">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">
+<span class="material-icons-round text-xl">shopping_bag</span>
+<span>Đơn hàng</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">
+<span class="material-icons-round text-xl">inventory_2</span>
+<span>Sản phẩm</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">
+<span class="material-icons-round text-xl">category</span>
+<span>Danh mục</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">
+<span class="material-icons-round text-xl">people</span>
+<span>Khách hàng</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">
+<span class="material-icons-round text-xl">account_balance_wallet</span>
+<span>Ví / Nạp tiền</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">
+<span class="material-icons-round text-xl">receipt_long</span>
+<span>Giao dịch</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">
+<span class="material-icons-round text-xl">confirmation_number</span>
+<span>Voucher / Coupon</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">
+<span class="material-icons-round text-xl">campaign</span>
+<span>Tin tức / KM</span>
+</a>
+<div class="pt-4 border-t border-gray-100 dark:border-gray-700 mt-4">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">
+<span class="material-icons-round text-xl">settings</span>
+<span>Cài đặt</span>
+</a>
+</div>
+</nav>
+</div>
+<div class="p-4 border-t border-gray-100 dark:border-gray-700">
+<button class="w-full flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-blue-50 dark:bg-gray-700 text-primary dark:text-blue-400 text-sm font-medium hover:bg-blue-100 dark:hover:bg-gray-600 transition-colors">
+<span class="material-icons-round text-lg">first_page</span>
+                    Thu gọn
+                </button>
+</div>
+</aside>
+<main class="flex-1 flex flex-col min-w-0 overflow-hidden relative">
+<header class="h-16 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between px-8 flex-shrink-0 z-20">
+<div class="relative w-96">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-icons-round text-gray-400">search</span>
+</span>
+<input class="block w-full pl-10 pr-3 py-2 border-none rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm" placeholder="Tìm kiếm đơn hàng, sản phẩm..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<div class="text-right">
+<p class="text-xs text-gray-500 dark:text-gray-400">Số dư khả dụng</p>
+<p class="text-primary font-bold text-lg">50.000.000 đ</p>
+</div>
+<button class="p-2 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 relative transition-colors text-gray-600 dark:text-gray-300">
+<span class="material-icons-round text-xl">notifications</span>
+<span class="absolute top-2 right-2.5 block h-2 w-2 rounded-full bg-red-500 ring-2 ring-white dark:ring-gray-800"></span>
+</button>
+<div class="relative group">
+<button class="flex items-center focus:outline-none ring-2 ring-primary ring-offset-2 dark:ring-offset-gray-800 rounded-full">
+<img alt="Admin Avatar" class="h-10 w-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiezf0-LtilQ48u_XJda8EXFtGLORvqDefyE8T7L4G8RqsYl7u13_ZJAbs9fR2T53PRlmUtFd-MVkDP7RFv-0LmDuC4ewy1SLJQhNVauxQt5fydED7dq5vkJ2vr5CfbWVlHG2T-qbQ7KI5H-gL0u9yYvZZr23KdGnvkrM21-Nc1RUOurrKQ82dXzWteiHTqvuAYk0KIsma9PnHhiESVZxD0YPtbVknlLA85dNa48tBGstLRW2FbUSo7SyJWizeX_ZwMNhGHt1AVfk"/>
+</button>
+<div class="absolute right-0 top-full mt-3 w-[280px] bg-white dark:bg-gray-800 rounded-xl shadow-dropdown border border-gray-100 dark:border-gray-700 overflow-hidden transform transition-all z-50 animate-fade-in-down">
+<div class="absolute -top-1.5 right-4 w-3 h-3 bg-white dark:bg-gray-800 border-t border-l border-gray-100 dark:border-gray-700 transform rotate-45"></div>
+<div class="px-5 py-4 border-b border-gray-100 dark:border-gray-700 flex items-center gap-3">
+<img alt="Avatar" class="h-10 w-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhRdU3S3k1sRBB81TI0i9jBuNOC_uNiwavGFp3b2ahpeeLb9DcJd_L_UhoaMHd2SkREMX-VhTY9pXcPJui1XLq70751SGCS8nThK4jGX8rxmNqzzR2-WH2X-GLVGW9ouek_8ycv2rRI75ffmggl_u9oYa9FV-Bv_MbXpiB7ZC54faxKATW6QN-ejguum7790vp71FSBPgmZlvHCZ7OnPfk3KikVDwpO86bE72wCZeHZcNalTrezUoKnMseJwtff78s2LFEDLX-djc"/>
+<div class="overflow-hidden">
+<h4 class="text-sm font-semibold text-gray-900 dark:text-white truncate">Admin Nguyễn Văn A</h4>
+<p class="text-xs text-gray-500 dark:text-gray-400 truncate">admin@ritokey.com</p>
+<span class="inline-block mt-1 px-1.5 py-0.5 rounded text-[10px] font-medium bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200">
+                                        Quản trị hệ thống
+                                    </span>
+</div>
+</div>
+<div class="px-2 py-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors group" href="#">
+<span class="material-icons-round text-gray-400 group-hover:text-primary text-[20px]">person</span>
+                                    Hồ sơ của tôi
+                                </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors group" href="#">
+<span class="material-icons-round text-gray-400 group-hover:text-primary text-[20px]">settings</span>
+                                    Cài đặt tài khoản
+                                </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors group" href="#">
+<span class="material-icons-round text-gray-400 group-hover:text-primary text-[20px]">notifications</span>
+                                    Trung tâm thông báo
+                                </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors group" href="#">
+<span class="material-icons-round text-gray-400 group-hover:text-primary text-[20px]">lock_reset</span>
+                                    Đổi mật khẩu
+                                </a>
+</div>
+<div class="px-2 py-2 border-t border-gray-100 dark:border-gray-700">
+<div class="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-icons-round text-gray-400 text-[20px]">dark_mode</span>
+<span>Giao diện Tối</span>
+</div>
+<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer border-gray-300" id="toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-gray-300 cursor-pointer" for="toggle"></label>
+</div>
+</div>
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">
+<div class="flex items-center gap-3">
+<span class="material-icons-round text-gray-400 text-[20px]">language</span>
+<span>Ngôn ngữ</span>
+</div>
+<div class="flex items-center text-xs font-medium text-gray-500">
+                                        Tiếng Việt
+                                        <span class="material-icons-round text-base ml-1">chevron_right</span>
+</div>
+</a>
+</div>
+<div class="px-2 pb-2 pt-1 border-t border-gray-100 dark:border-gray-700">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-600 transition-colors group" href="#">
+<span class="material-icons-round group-hover:text-red-600 text-[20px]">logout</span>
+                                    Đăng xuất
+                                </a>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class="flex-1 overflow-y-auto p-8 relative z-0">
+<div class="max-w-[1600px] mx-auto space-y-6">
+<div>
+<h1 class="text-2xl font-bold text-gray-900 dark:text-white">Dashboard Overview</h1>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Cập nhật lúc 14:30 PM, 24/10/2023</p>
+</div>
+<div class="grid grid-cols-4 gap-6">
+<div class="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-soft border border-gray-100 dark:border-gray-700">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-blue-50 dark:bg-blue-900/30 rounded-lg text-primary">
+<span class="material-icons-round">payments</span>
+</div>
+<span class="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-xs font-medium px-2 py-0.5 rounded-full flex items-center">
+<span class="material-icons-round text-xs mr-1">trending_up</span>+15%
+                                </span>
+</div>
+<div class="mt-4">
+<p class="text-sm text-gray-500 dark:text-gray-400">Doanh thu hôm nay</p>
+<h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">12.500.000 đ</h3>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-soft border border-gray-100 dark:border-gray-700">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-indigo-50 dark:bg-indigo-900/30 rounded-lg text-indigo-600 dark:text-indigo-400">
+<span class="material-icons-round">shopping_cart</span>
+</div>
+<span class="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-xs font-medium px-2 py-0.5 rounded-full flex items-center">
+<span class="material-icons-round text-xs mr-1">trending_up</span>+5%
+                                </span>
+</div>
+<div class="mt-4">
+<p class="text-sm text-gray-500 dark:text-gray-400">Đơn hàng mới</p>
+<h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">142</h3>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-soft border border-gray-100 dark:border-gray-700">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-orange-50 dark:bg-orange-900/30 rounded-lg text-orange-600 dark:text-orange-400">
+<span class="material-icons-round">group_add</span>
+</div>
+<span class="bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 text-xs font-medium px-2 py-0.5 rounded-full flex items-center">
+<span class="material-icons-round text-xs mr-1">trending_down</span>-2%
+                                </span>
+</div>
+<div class="mt-4">
+<p class="text-sm text-gray-500 dark:text-gray-400">Người dùng mới</p>
+<h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">24</h3>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-soft border border-gray-100 dark:border-gray-700">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-purple-50 dark:bg-purple-900/30 rounded-lg text-purple-600 dark:text-purple-400">
+<span class="material-icons-round">restart_alt</span>
+</div>
+<span class="bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 text-xs font-medium px-2 py-0.5 rounded-full flex items-center">
+                                    0%
+                                </span>
+</div>
+<div class="mt-4">
+<p class="text-sm text-gray-500 dark:text-gray-400">Tỷ lệ hoàn tiền</p>
+<h3 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">1.2%</h3>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-6">
+<div class="col-span-2 bg-white dark:bg-gray-800 rounded-xl p-6 shadow-soft border border-gray-100 dark:border-gray-700">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h3 class="font-bold text-gray-900 dark:text-white">Doanh thu</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Tổng doanh thu: <span class="font-semibold text-gray-900 dark:text-white">350.000.000 đ</span></p>
+</div>
+<div class="flex bg-gray-100 dark:bg-gray-700 rounded-lg p-1 text-xs font-medium">
+<button class="px-3 py-1 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">7 ngày</button>
+<button class="px-3 py-1 bg-white dark:bg-gray-600 text-primary shadow-sm rounded">30 ngày</button>
+<button class="px-3 py-1 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">90 ngày</button>
+</div>
+</div>
+<div class="h-64 w-full relative">
+<svg class="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 800 200">
+<line stroke="#e5e7eb" stroke-width="1" x1="0" x2="800" y1="200" y2="200"></line>
+<line stroke="#f3f4f6" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="800" y1="150" y2="150"></line>
+<line stroke="#f3f4f6" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="800" y1="100" y2="100"></line>
+<line stroke="#f3f4f6" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="800" y1="50" y2="50"></line>
+<path d="M0,150 C100,100 200,180 300,160 C400,120 400,50 500,50 C600,50 650,150 720,130 C760,110 780,50 800,40" fill="none" stroke="#0ea5e9" stroke-width="3"></path>
+<defs>
+<linearGradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.1"></stop>
+<stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"></stop>
+</linearGradient>
+</defs>
+<path d="M0,150 C100,100 200,180 300,160 C400,120 400,50 500,50 C600,50 650,150 720,130 C760,110 780,50 800,40 V200 H0 Z" fill="url(#chartGradient)"></path>
+</svg>
+<div class="flex justify-between text-xs text-gray-400 mt-2">
+<span>01/10</span>
+<span>05/10</span>
+<span>10/10</span>
+<span>15/10</span>
+<span>20/10</span>
+<span>25/10</span>
+<span>30/10</span>
+</div>
+</div>
+</div>
+<div class="col-span-1 bg-white dark:bg-gray-800 rounded-xl p-6 shadow-soft border border-gray-100 dark:border-gray-700 flex flex-col justify-center">
+<h3 class="font-bold text-gray-900 dark:text-white mb-6">Cơ cấu doanh thu</h3>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-sm mb-1">
+<div class="flex items-center">
+<span class="w-3 h-3 rounded-full bg-blue-500 mr-2"></span>
+<span class="text-gray-700 dark:text-gray-300">GiftCard</span>
+</div>
+<span class="font-semibold text-gray-900 dark:text-white">40%</span>
+</div>
+<div class="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2">
+<div class="bg-blue-500 h-2 rounded-full" style="width: 40%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-sm mb-1">
+<div class="flex items-center">
+<span class="w-3 h-3 rounded-full bg-emerald-500 mr-2"></span>
+<span class="text-gray-700 dark:text-gray-300">Game</span>
+</div>
+<span class="font-semibold text-gray-900 dark:text-white">35%</span>
+</div>
+<div class="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2">
+<div class="bg-emerald-500 h-2 rounded-full" style="width: 35%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-sm mb-1">
+<div class="flex items-center">
+<span class="w-3 h-3 rounded-full bg-yellow-500 mr-2"></span>
+<span class="text-gray-700 dark:text-gray-300">Tiện ích</span>
+</div>
+<span class="font-semibold text-gray-900 dark:text-white">25%</span>
+</div>
+<div class="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2">
+<div class="bg-yellow-500 h-2 rounded-full" style="width: 25%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-800 rounded-xl shadow-soft border border-gray-100 dark:border-gray-700 overflow-hidden">
+<div class="p-5 border-b border-gray-100 dark:border-gray-700 flex justify-between items-center">
+<h3 class="font-bold text-gray-900 dark:text-white">Đơn hàng gần đây</h3>
+<div class="flex space-x-2">
+<button class="px-3 py-1.5 bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg text-xs font-medium text-gray-600 dark:text-gray-300 flex items-center gap-1">
+<span class="material-icons-round text-sm">filter_list</span> Lọc
+                                </button>
+<button class="px-3 py-1.5 bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg text-xs font-medium text-gray-600 dark:text-gray-300 flex items-center gap-1">
+<span class="material-icons-round text-sm">sort</span> Sắp xếp
+                                </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-gray-50 dark:bg-gray-700/50 text-xs text-gray-500 dark:text-gray-400 font-semibold uppercase tracking-wider">
+<th class="px-6 py-3">Mã đơn</th>
+<th class="px-6 py-3">Khách hàng</th>
+<th class="px-6 py-3">Sản phẩm</th>
+<th class="px-6 py-3">Trạng thái</th>
+<th class="px-6 py-3">Tổng tiền</th>
+<th class="px-6 py-3">Thời gian</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-100 dark:divide-gray-700 text-sm">
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors">
+<td class="px-6 py-4 font-medium text-primary">#ORD-3942</td>
+<td class="px-6 py-4 text-gray-900 dark:text-white">Nguyễn Văn An</td>
+<td class="px-6 py-4 text-gray-600 dark:text-gray-300 flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-gray-200 flex items-center justify-center text-[10px]">🎮</span>
+                                            Steam Wallet $20
+                                        </td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 rounded bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-xs font-medium">Hoàn thành</span>
+</td>
+<td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">520.000 đ</td>
+<td class="px-6 py-4 text-gray-500">2 phút trước</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors">
+<td class="px-6 py-4 font-medium text-primary">#ORD-3941</td>
+<td class="px-6 py-4 text-gray-900 dark:text-white">Trần Thị Bích</td>
+<td class="px-6 py-4 text-gray-600 dark:text-gray-300 flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-red-100 flex items-center justify-center text-[10px]">N</span>
+                                            Netflix Premium 1T
+                                        </td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 rounded bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400 text-xs font-medium">Chờ xử lý</span>
+</td>
+<td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">65.000 đ</td>
+<td class="px-6 py-4 text-gray-500">15 phút trước</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors">
+<td class="px-6 py-4 font-medium text-primary">#ORD-3940</td>
+<td class="px-6 py-4 text-gray-900 dark:text-white">Lê Hoàng Nam</td>
+<td class="px-6 py-4 text-gray-600 dark:text-gray-300 flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center text-[10px]">G</span>
+                                            Garena Card 500K
+                                        </td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 rounded bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-xs font-medium">Hoàn thành</span>
+</td>
+<td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">485.000 đ</td>
+<td class="px-6 py-4 text-gray-500">32 phút trước</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors">
+<td class="px-6 py-4 font-medium text-primary">#ORD-3939</td>
+<td class="px-6 py-4 text-gray-900 dark:text-white">Phạm Minh Tuấn</td>
+<td class="px-6 py-4 text-gray-600 dark:text-gray-300 flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center text-[10px]">S</span>
+                                            Spotify Upgrade
+                                        </td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 rounded bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 text-xs font-medium">Đã hoàn tiền</span>
+</td>
+<td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">30.000 đ</td>
+<td class="px-6 py-4 text-gray-500">1 giờ trước</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-3 text-center border-t border-gray-100 dark:border-gray-700">
+<a class="text-sm font-medium text-primary hover:text-blue-600" href="#">Xem tất cả đơn hàng</a>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-6 pb-6">
+<div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-soft border border-gray-100 dark:border-gray-700">
+<h3 class="font-bold text-gray-900 dark:text-white mb-4">Top sản phẩm bán chạy</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center">
+<span class="text-lg">🎮</span>
+</div>
+<div>
+<h4 class="text-sm font-semibold text-gray-900 dark:text-white">Garena Card 100k</h4>
+<p class="text-xs text-gray-500 dark:text-gray-400">Game Card</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-gray-900 dark:text-white">1,204</p>
+<p class="text-xs text-gray-500">Đã bán</p>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-red-50 dark:bg-red-900/20 flex items-center justify-center">
+<span class="text-lg text-red-600">N</span>
+</div>
+<div>
+<h4 class="text-sm font-semibold text-gray-900 dark:text-white">Netflix Premium 1 Month</h4>
+<p class="text-xs text-gray-500 dark:text-gray-400">Tiện ích</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-gray-900 dark:text-white">842</p>
+<p class="text-xs text-gray-500">Đã bán</p>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center">
+<span class="text-lg">🍎</span>
+</div>
+<div>
+<h4 class="text-sm font-semibold text-gray-900 dark:text-white">iTunes Gift Card $10</h4>
+<p class="text-xs text-gray-500 dark:text-gray-400">Gift Card</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-gray-900 dark:text-white">650</p>
+<p class="text-xs text-gray-500">Đã bán</p>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-green-50 dark:bg-green-900/20 flex items-center justify-center">
+<span class="text-lg text-green-600">S</span>
+</div>
+<div>
+<h4 class="text-sm font-semibold text-gray-900 dark:text-white">Spotify Premium Upgrade</h4>
+<p class="text-xs text-gray-500 dark:text-gray-400">Tiện ích</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-gray-900 dark:text-white">420</p>
+<p class="text-xs text-gray-500">Đã bán</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-red-50 dark:bg-red-900/10 rounded-xl p-6 border border-red-100 dark:border-red-900/30">
+<h3 class="font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+<div class="p-1 bg-red-100 dark:bg-red-800 rounded text-red-500 dark:text-red-200">
+<span class="material-icons-round text-lg">warning</span>
+</div>
+                                Cần xử lý ngay
+                            </h3>
+<div class="space-y-3">
+<div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm flex justify-between items-start">
+<div class="flex gap-3">
+<span class="material-icons-round text-yellow-500 bg-yellow-50 dark:bg-yellow-900/20 p-1.5 rounded-lg h-fit">history</span>
+<div>
+<h4 class="text-sm font-semibold text-gray-900 dark:text-white">Hoàn tiền chờ xử lý (3)</h4>
+<p class="text-xs text-gray-500 mt-0.5">Có 3 yêu cầu hoàn tiền từ khách hàng cần duyệt.</p>
+</div>
+</div>
+<button class="text-xs font-semibold text-primary hover:underline">Xem</button>
+</div>
+<div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm flex justify-between items-start">
+<div class="flex gap-3">
+<span class="material-icons-round text-red-500 bg-red-50 dark:bg-red-900/20 p-1.5 rounded-lg h-fit">error_outline</span>
+<div>
+<h4 class="text-sm font-semibold text-gray-900 dark:text-white">Lỗi cổng thanh toán (1)</h4>
+<p class="text-xs text-gray-500 mt-0.5">Cổng Momo API báo lỗi kết nối lúc 14:00.</p>
+</div>
+</div>
+<button class="text-xs font-semibold text-primary hover:underline">Chi tiết</button>
+</div>
+<div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm flex justify-between items-start">
+<div class="flex gap-3">
+<span class="material-icons-round text-blue-500 bg-blue-50 dark:bg-blue-900/20 p-1.5 rounded-lg h-fit">inventory</span>
+<div>
+<h4 class="text-sm font-semibold text-gray-900 dark:text-white">Sắp hết hàng (5)</h4>
+<p class="text-xs text-gray-500 mt-0.5">Các sản phẩm thẻ Steam 20$, iTunes 10$ sắp hết kho.</p>
+</div>
+</div>
+<button class="text-xs font-semibold text-primary hover:underline">Nhập</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<style>
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #0ea5e9;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #0ea5e9;
+        }
+        .toggle-checkbox {
+            right: 20px;
+            transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-down {
+            animation: fadeInDown 0.2s ease-out forwards;
+        }
+    </style>
+
+</body></html>

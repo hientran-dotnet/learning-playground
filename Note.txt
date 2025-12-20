@@ -1,0 +1,6 @@
+[18-12-2025]
+- DbContext trong mô hình Repositories và Service có nghĩa là gì?
+
+DbContext là lớp trung tâm của EF Core đại diện cho “phiên làm việc” với DB (Unit of Work), chứa DbSet để query và theo dõi thay đổi để commit bằng SaveChanges; trong kiến trúc Repository–Service–Presentation thì DbContext nằm ở tầng Data/Infrastructure và được Repository/UnitOfWork sử dụng, còn Service/Presentation chỉ gọi qua interface.
+
+- Tại sao khi viết một service mới ta phải tạo mới object mới với kiểu readonly với dạng Interface class (IUserRepository) {tên object} xong sau đó tạo một constructor nhận vào một object từ Interface class đó sau đó gán object ở trên vào constructor đó ?

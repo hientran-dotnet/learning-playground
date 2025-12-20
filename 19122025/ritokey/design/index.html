@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dashboard Overview - RitoKey Admin</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#258cf4",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101922",
+                        "card-light": "#ffffff",
+                        "card-dark": "#1a2632",
+                        "border-light": "#e7edf4",
+                        "border-dark": "#2a3b4d",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem", 
+                        "lg": "1.5rem", 
+                        "xl": "2rem", 
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #334155;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-50 font-display transition-colors duration-200">
+<div class="flex h-screen w-full overflow-hidden">
+<!-- Side Navigation -->
+<aside class="w-72 flex-shrink-0 border-r border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark flex flex-col hidden md:flex">
+<!-- Brand -->
+<div class="p-6 pb-2">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat bg-cover rounded-xl size-10 shadow-sm" data-alt="RitoKey abstract geometric logo with blue gradient" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD6tOvP9NE5OiF3_7KYoZQZ5yYc3TCU4iFdXBUVEpxMafLzK6hAkvLKQ3RN6fNinpy-TB_KAxcpX9lt6RKZpS3q7rGlV4l5IWl9ZEWvaIevQNdJB5iWhrLbcxYycHvlQdp9si_yBOcEEy2M11mLdP1gWzgDAR-hMSfnLySX-dhcwgW9Ggd6gvFJd-kLbVLpqnB2ATaPAby5CFl4f8EdH_cC7IZJFcYZL-7LMnIRaAsmvKlQqUn89kp_BDN45XF0JRRS6gLfT6axqh8");'></div>
+<div class="flex flex-col">
+<h1 class="text-lg font-bold leading-tight">RitoKey Admin</h1>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium">Quản trị hệ thống</p>
+</div>
+</div>
+</div>
+<!-- Menu -->
+<div class="flex-1 overflow-y-auto px-4 py-4">
+<nav class="flex flex-col gap-1.5">
+<!-- Active Item -->
+    <a class="flex items-center gap-3 px-4 py-3 rounded-full bg-primary/10 text-primary" href="#">
+        <span class="material-symbols-outlined text-[22px]" data-weight="fill">dashboard</span>
+        <span class="text-sm font-bold">Dashboard</span>
+    </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">shopping_bag</span>
+<span class="text-sm font-medium">Đơn hàng</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">inventory_2</span>
+<span class="text-sm font-medium">Sản phẩm</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">category</span>
+<span class="text-sm font-medium">Danh mục</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">group</span>
+<span class="text-sm font-medium">Khách hàng</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">account_balance_wallet</span>
+<span class="text-sm font-medium">Ví / Nạp tiền</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">receipt_long</span>
+<span class="text-sm font-medium">Giao dịch</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">confirmation_number</span>
+<span class="text-sm font-medium">Voucher / Coupon</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">campaign</span>
+<span class="text-sm font-medium">Tin tức / KM</span>
+</a>
+<div class="h-px bg-border-light dark:bg-border-dark my-2 mx-4"></div>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">settings</span>
+<span class="text-sm font-medium">Cài đặt</span>
+</a>
+</nav>
+</div>
+<!-- Collapse Button -->
+<div class="p-4 border-t border-border-light dark:border-border-dark">
+<button class="flex w-full cursor-pointer items-center justify-center rounded-full h-10 bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all text-sm font-bold tracking-wide">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">keyboard_double_arrow_left</span> Thu gọn</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col min-w-0 bg-background-light dark:bg-background-dark overflow-hidden">
+<!-- Top Header -->
+<header class="h-20 flex-shrink-0 flex items-center justify-between px-6 lg:px-8 border-b border-border-light dark:border-border-dark bg-card-light/80 dark:bg-card-dark/80 backdrop-blur-md z-10 sticky top-0">
+<div class="flex items-center gap-6 flex-1">
+<button class="md:hidden p-2 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<!-- Search -->
+<div class="hidden md:flex items-center max-w-md w-full relative">
+<span class="material-symbols-outlined absolute left-4 text-slate-400">search</span>
+<input class="w-full h-11 pl-12 pr-4 bg-slate-100 dark:bg-slate-800 border-none rounded-full text-sm focus:ring-2 focus:ring-primary/50 placeholder:text-slate-400 dark:text-white" placeholder="Tìm kiếm đơn hàng, sản phẩm..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4 lg:gap-6">
+<!-- Wallet Balance -->
+<div class="hidden lg:flex flex-col items-end mr-2">
+<span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Số dư khả dụng</span>
+<span class="text-primary font-bold text-lg leading-none">50.000.000 đ</span>
+</div>
+<button class="flex items-center justify-center h-10 px-5 bg-primary hover:bg-blue-600 text-white rounded-full text-sm font-bold shadow-lg shadow-primary/30 transition-all">
+<span class="material-symbols-outlined text-[20px] mr-2">add</span>
+                        Tạo mới
+                    </button>
+<button class="relative flex items-center justify-center size-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+<span class="absolute top-2 right-2 size-2.5 bg-red-500 rounded-full border-2 border-white dark:border-slate-800"></span>
+</button>
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 border-2 border-white dark:border-slate-700 shadow-sm cursor-pointer" data-alt="User avatar of an administrator" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCWDpzQwlX-rYMh14mY2rUy83fp0qbiPfPfCtkjRoohhz4Ph4Gdohq2-XG7C6SZDvxo3d80n7Seh62k1KtJB7XhxwuD3PHesw--A07s-ZMvXjzO2lupj6yUtzTT6doRSWPrADljIhM8wCInPpBH9S4FCHW7h31pvcFbfCxcqK-aZ4ESJOQ8WgbLV26X8-lIOPEkPS5ViRekvYbdlSi4CtdNI85-bkvP8GdwUOSdBR62UBjcvk70BT9gHPbYGMsvd0LWE2n4TzRb2XA");'></div>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-6 lg:p-8">
+<div class="max-w-[1400px] mx-auto flex flex-col gap-8">
+<!-- Page Title -->
+<div class="flex flex-col">
+<h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Dashboard Overview</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Cập nhật lúc 14:30 PM, 24/10/2023</p>
+</div>
+<!-- KPI Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+<!-- Card 1 -->
+<div class="flex flex-col p-6 rounded-xl bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 rounded-lg bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<span class="flex items-center gap-1 text-xs font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +15%
+                                </span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium mb-1">Doanh thu hôm nay</p>
+<p class="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">12.500.000 đ</p>
+</div>
+<!-- Card 2 -->
+<div class="flex flex-col p-6 rounded-xl bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 rounded-lg bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400">
+<span class="material-symbols-outlined">shopping_cart</span>
+</div>
+<span class="flex items-center gap-1 text-xs font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +5%
+                                </span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium mb-1">Đơn hàng mới</p>
+<p class="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">142</p>
+</div>
+<!-- Card 3 -->
+<div class="flex flex-col p-6 rounded-xl bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 rounded-lg bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400">
+<span class="material-symbols-outlined">group_add</span>
+</div>
+<span class="flex items-center gap-1 text-xs font-bold text-rose-500 bg-rose-50 dark:bg-rose-900/20 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px]">trending_down</span> -2%
+                                </span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium mb-1">Người dùng mới</p>
+<p class="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">24</p>
+</div>
+<!-- Card 4 -->
+<div class="flex flex-col p-6 rounded-xl bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 rounded-lg bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400">
+<span class="material-symbols-outlined">currency_exchange</span>
+</div>
+<span class="flex items-center gap-1 text-xs font-bold text-slate-500 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded-full">
+                                    0%
+                                </span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium mb-1">Tỷ lệ hoàn tiền</p>
+<p class="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">1.2%</p>
+</div>
+</div>
+<!-- Charts Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Line Chart -->
+<div class="lg:col-span-2 p-6 rounded-xl bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark shadow-sm flex flex-col">
+<div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+<div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Doanh thu</h3>
+<p class="text-slate-500 text-sm">Tổng doanh thu: <span class="text-slate-900 dark:text-white font-semibold">350.000.000 đ</span></p>
+</div>
+<div class="flex bg-slate-100 dark:bg-slate-800 rounded-full p-1">
+<button class="px-3 py-1 rounded-full text-xs font-bold text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-white transition-colors">7 ngày</button>
+<button class="px-3 py-1 rounded-full text-xs font-bold bg-white dark:bg-slate-600 text-primary shadow-sm">30 ngày</button>
+<button class="px-3 py-1 rounded-full text-xs font-bold text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-white transition-colors">90 ngày</button>
+</div>
+</div>
+<!-- Chart Visual -->
+<div class="relative w-full h-[250px] mt-auto">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 800 250">
+<defs>
+<lineargradient id="gradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#258cf4" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#258cf4" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,200 Q100,100 200,150 T400,100 T600,120 T800,50 L800,250 L0,250 Z" fill="url(#gradient)"></path>
+<path d="M0,200 Q100,100 200,150 T400,100 T600,120 T800,50" fill="none" stroke="#258cf4" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+</svg>
+<!-- X Axis Labels -->
+<div class="flex justify-between mt-2 text-xs text-slate-400 font-medium px-1">
+<span>01/10</span>
+<span>05/10</span>
+<span>10/10</span>
+<span>15/10</span>
+<span>20/10</span>
+<span>25/10</span>
+<span>30/10</span>
+</div>
+</div>
+</div>
+<!-- Donut/Category Chart -->
+<div class="p-6 rounded-xl bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark shadow-sm flex flex-col">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-6">Cơ cấu doanh thu</h3>
+<div class="flex-1 flex flex-col justify-center gap-6">
+<!-- Item 1 -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between text-sm font-medium">
+<span class="flex items-center gap-2">
+<span class="size-3 rounded-full bg-blue-500"></span>
+                                            GiftCard
+                                        </span>
+<span class="text-slate-900 dark:text-white">40%</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2.5 overflow-hidden">
+<div class="bg-blue-500 h-2.5 rounded-full" style="width: 40%"></div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between text-sm font-medium">
+<span class="flex items-center gap-2">
+<span class="size-3 rounded-full bg-emerald-500"></span>
+                                            Game
+                                        </span>
+<span class="text-slate-900 dark:text-white">35%</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2.5 overflow-hidden">
+<div class="bg-emerald-500 h-2.5 rounded-full" style="width: 35%"></div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between text-sm font-medium">
+<span class="flex items-center gap-2">
+<span class="size-3 rounded-full bg-amber-400"></span>
+                                            Tiện ích
+                                        </span>
+<span class="text-slate-900 dark:text-white">25%</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2.5 overflow-hidden">
+<div class="bg-amber-400 h-2.5 rounded-full" style="width: 25%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Orders Table -->
+<div class="rounded-xl bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark shadow-sm overflow-hidden">
+<div class="p-6 border-b border-border-light dark:border-border-dark flex flex-wrap gap-4 justify-between items-center">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Đơn hàng gần đây</h3>
+<div class="flex gap-2">
+<button class="flex items-center gap-2 px-3 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined text-[16px]">filter_list</span> Lọc
+                                </button>
+<button class="flex items-center gap-2 px-3 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined text-[16px]">sort</span> Sắp xếp
+                                </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left">
+<thead class="text-xs text-slate-500 uppercase bg-slate-50 dark:bg-slate-800/50">
+<tr>
+<th class="px-6 py-4 font-bold">Mã đơn</th>
+<th class="px-6 py-4 font-bold">Khách hàng</th>
+<th class="px-6 py-4 font-bold">Sản phẩm</th>
+<th class="px-6 py-4 font-bold">Trạng thái</th>
+<th class="px-6 py-4 font-bold">Tổng tiền</th>
+<th class="px-6 py-4 font-bold">Thời gian</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-light dark:divide-border-dark">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4 font-medium text-primary">#ORD-3942</td>
+<td class="px-6 py-4">Nguyễn Văn An</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="size-6 bg-slate-200 rounded bg-cover" data-alt="Steam logo icon" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuADkSRbR3GsBcvwERYl5X4SCakqmfiCCanGxVqe2Tibdwkczq6wnNIFvJqaX0ZwoPi-PT2qDppqBdZLd7kv8JB9fbfl1vjIVQIAlrPT6gjGpp8elJ0m8pftusJ60G7KoEPwnpE1vRli4tNiKGBHdLgNk1TmuCrhXlOcCmjliQC79YbyObKSvnvaPlNjsGMDCN_lQVU7r3ceXdTSzSyaPMffVlc6sVhCRgIEV2SKmnCjrjY63uKXL94_zxWEE2WhSV2UxF19njn7iqM");'></div>
+                                                Steam Wallet $20
+                                            </div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400">Hoàn thành</span>
+</td>
+<td class="px-6 py-4 font-bold text-slate-900 dark:text-white">520.000 đ</td>
+<td class="px-6 py-4 text-slate-500">2 phút trước</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4 font-medium text-primary">#ORD-3941</td>
+<td class="px-6 py-4">Trần Thị Bích</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="size-6 bg-slate-200 rounded bg-cover" data-alt="Netflix logo icon" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDSzyDZWbf67juXAs_wlTsnzyC0KNqbmSeg5fnk4VfeQUQlYRS1trFBfXLvgTirGBOK8_k3RbpVfAVfH7ejv4weCxPgzYH96R7nTcJA2wxzN1t3rH0aC5Uoz-Cw-XMYWpJLXKvi9unVQAIyvASRUEcNS1T5UcVFtVbYe4Lbh1W8qUboHxOmJO_aNiKwMAq-FjIL9x4N0U0la601_G4UyEovZnmj-iHoYlY4PYwStAistUbm_aUCmOR3FKB54ZIIx5di06Qf71A8km8");'></div>
+                                                Netflix Premium 1T
+                                            </div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">Chờ xử lý</span>
+</td>
+<td class="px-6 py-4 font-bold text-slate-900 dark:text-white">65.000 đ</td>
+<td class="px-6 py-4 text-slate-500">15 phút trước</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4 font-medium text-primary">#ORD-3940</td>
+<td class="px-6 py-4">Lê Hoàng Nam</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="size-6 bg-slate-200 rounded bg-cover" data-alt="Garena logo icon" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDwNHK9LxZr1OfizI03LU-gI-LN5KAPWNFo7ybjc9TfegBs7BXsruNBvY7f9FMoigQo76-G2V28VpZb__M_qNckomGugzkm2I7XnWZNNyy-K4MlmZN0VHjyg3yDgjCu7UD9ZgmrOOvR9uzGNus04Ow9hiD7hzghgIBAfnOXzMAHsTL8yjZa1jA1QxEEo9d4vvpuSEwUqjdk0sU4qB9X7UAl7kwtsAH4U4WjaBdvrnDJwTHDsOBFNsv4AgGxBA9tHNudsKp--buZOfE");'></div>
+                                                Garena Card 500K
+                                            </div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400">Hoàn thành</span>
+</td>
+<td class="px-6 py-4 font-bold text-slate-900 dark:text-white">485.000 đ</td>
+<td class="px-6 py-4 text-slate-500">32 phút trước</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4 font-medium text-primary">#ORD-3939</td>
+<td class="px-6 py-4">Phạm Minh Tuấn</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="size-6 bg-slate-200 rounded bg-cover" data-alt="Spotify logo icon" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBOn1ExAtm-1dUkCXJ0_cRwKnCfwYe-squ1-uKuNLejw7EP63dHh-uxITkbCX1xD0XPejF0ch1RfjOwueDc2j3CE8NvQ4NsOxrT7G790r7GDOcqq8cszUfbTcwFg8d3meboEUxc_l6pFulAfyyUJQDGA7wyzSvchWKZdZV709ki4s4B5F3BJRIVFJO_gWwwfYeZ5FYwiUpGwLhdbz72aBDhxZFwHswAb2s9_37RPvnjUs7NIWsyofyRGTeGg2InxywB5Onfz1O1Q3Y");'></div>
+                                                Spotify Upgrade
+                                            </div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400">Đã hoàn tiền</span>
+</td>
+<td class="px-6 py-4 font-bold text-slate-900 dark:text-white">30.000 đ</td>
+<td class="px-6 py-4 text-slate-500">1 giờ trước</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 bg-slate-50 dark:bg-slate-800/30 border-t border-border-light dark:border-border-dark text-center">
+<button class="text-sm font-bold text-primary hover:text-blue-600 transition-colors">Xem tất cả đơn hàng</button>
+</div>
+</div>
+<!-- Bottom Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pb-8">
+<!-- Top Products -->
+<div class="p-6 rounded-xl bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark shadow-sm">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-6">Top sản phẩm bán chạy</h3>
+<div class="flex flex-col gap-5">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-lg bg-slate-200 bg-cover bg-center" data-alt="Product thumbnail Garena Card" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD2iZoXjDm-n-GrZp5VsZoJs-fZdoe8sbX3GzTtHzWZipGMTMD6C-h3s1yELl4uUM-Jxf8X116SSWoUo5PC5PGGHJbB3t7bwTpPXgpkmI06AgotGfs0FK5qEbN8AiLYx9-O4Rs5ZcYlxFw5hBINnmwfb1t2v5-0Qfy-NlrBue3gNujwDR9TAfYEecLLHnim6l5gRLQEYNrdMrkhlxIEb3JsnoI4jRIrgaiB40zmG4e6KwwusvgpMltAhfw6V3t2-oK77nJv9mn2IfM");'></div>
+<div class="flex-1">
+<h4 class="text-sm font-bold text-slate-900 dark:text-white">Garena Card 100k</h4>
+<p class="text-xs text-slate-500">Game Card</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-slate-900 dark:text-white">1,204</p>
+<p class="text-xs text-slate-500">Đã bán</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-lg bg-slate-200 bg-cover bg-center" data-alt="Product thumbnail Netflix" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDDps_32Yipy0svhBaVaJ5vpJC5f1FBi3oA1D6eNe-Uwb_5-7xkmZ2jrx_hQXTBER2P0CvRjgoq-Up1xvegkkwWvSk6iXVHCLgvcqX83wIxDxojiiqa3h_h_7CDkRp32GG7bnLFmq2-09uAYU-kFAtnuzhhGi3ihGg3nyPjoztl1Qwuie1hYDqDSmad1QTA8gEen7IBoZRfUFWU0PzESI4Icun2Rp07Tpkmt9dLo9prtG-JTDK0Nd9znpBhNCHfRxqFkvy9WOqAY-0");'></div>
+<div class="flex-1">
+<h4 class="text-sm font-bold text-slate-900 dark:text-white">Netflix Premium 1 Month</h4>
+<p class="text-xs text-slate-500">Tiện ích</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-slate-900 dark:text-white">842</p>
+<p class="text-xs text-slate-500">Đã bán</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-lg bg-slate-200 bg-cover bg-center" data-alt="Product thumbnail iTunes Card" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBOyTUzgsfvY3IwdoyPgb8JkpKxLdG9VoaUxcBzrz6mWXYqDsp9qBAsMutNTcHLjMXq6XWNqKK3GCuNhVeVjRY6P-Hc8aLiPE1Al77rGKb0EQz2H42Lfd3HjIJutKswknCrq2PXegeFcUUNrObKS6uXPGUikroIzQd32ShT64otA0Nn6EWA5O0Y3y5Xz-CffHsUGw918xaei2SO_RE01fbia3JIVh7QnMoILmCTUlcnliACmWnpQSumpznpm9J8KBvtAWljm4aTloo");'></div>
+<div class="flex-1">
+<h4 class="text-sm font-bold text-slate-900 dark:text-white">iTunes Gift Card $10</h4>
+<p class="text-xs text-slate-500">Gift Card</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-slate-900 dark:text-white">650</p>
+<p class="text-xs text-slate-500">Đã bán</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-lg bg-slate-200 bg-cover bg-center" data-alt="Product thumbnail Spotify" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDo3F35214Cnu24aJu-HlnEmtMTYY-vMexSrbyTLmIxQco5TKYC5wyM6vt5ywpItM25oRFx4o4dWj5Q09AWgeWocKlwKDKOWImdzUe1jdlUpstEkGxewInXpwt1asPfsuLbwpOjBFLE-iMVnVOXFvrgH2WLtAHpTEFmpUEOrZks6q-We_NZQ66C_i5kh9bSC4t7tR4xK2fFYC163M6paX3NPSczSRI9mBD5L0Z9-IUGEMmeb54FedOU6hvVYVjbfp9XWZovMxhVia4");'></div>
+<div class="flex-1">
+<h4 class="text-sm font-bold text-slate-900 dark:text-white">Spotify Premium Upgrade</h4>
+<p class="text-xs text-slate-500">Tiện ích</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-slate-900 dark:text-white">420</p>
+<p class="text-xs text-slate-500">Đã bán</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Alerts / Warnings -->
+<div class="p-6 rounded-xl bg-card-light dark:bg-card-dark border border-red-200 dark:border-red-900/50 shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-red-500/5 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
+<div class="flex items-center gap-3 mb-6">
+<div class="p-2 rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400">
+<span class="material-symbols-outlined">warning</span>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Cần xử lý ngay</h3>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex items-start gap-4 p-4 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700/50">
+<div class="mt-0.5 text-amber-500">
+<span class="material-symbols-outlined text-[20px]">currency_exchange</span>
+</div>
+<div class="flex-1">
+<h4 class="text-sm font-bold text-slate-900 dark:text-white">Hoàn tiền chờ xử lý (3)</h4>
+<p class="text-xs text-slate-500 mt-1">Có 3 yêu cầu hoàn tiền từ khách hàng cần duyệt.</p>
+</div>
+<button class="text-xs font-bold text-primary hover:underline">Xem</button>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700/50">
+<div class="mt-0.5 text-red-500">
+<span class="material-symbols-outlined text-[20px]">error</span>
+</div>
+<div class="flex-1">
+<h4 class="text-sm font-bold text-slate-900 dark:text-white">Lỗi cổng thanh toán (1)</h4>
+<p class="text-xs text-slate-500 mt-1">Cổng Momo API báo lỗi kết nối lúc 14:00.</p>
+</div>
+<button class="text-xs font-bold text-primary hover:underline">Chi tiết</button>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700/50">
+<div class="mt-0.5 text-blue-500">
+<span class="material-symbols-outlined text-[20px]">inventory</span>
+</div>
+<div class="flex-1">
+<h4 class="text-sm font-bold text-slate-900 dark:text-white">Sắp hết hàng (5)</h4>
+<p class="text-xs text-slate-500 mt-1">Các sản phẩm thẻ Steam 20$, iTunes 10$ sắp hết kho.</p>
+</div>
+<button class="text-xs font-bold text-primary hover:underline">Nhập</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
